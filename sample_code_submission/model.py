@@ -7,23 +7,25 @@ You must supply at least 4 methods:
 - load: reloads the model.
 '''
 import pickle
-import numpy as np   # We recommend to use numpy arrays
+#import numpy as np   # We recommend to use numpy arrays
 from os.path import isfile
 from sklearn.base import BaseEstimator
-from sklearn import tree
+#from sklearn import tree
 
 #from sklearn.model_selection import GridSearchCV
 #from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
+#from sklearn.naive_bayes import GaussianNB
 #from sklearn.neighbors import KNeighborsClassifier 
 #from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import Pipeline
-from PREPROCESSSSSSING import Preprocessor
+#from sklearn.ensemble import RandomForestClassifier
+
 #from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 #from sklearn.ensemble import BaggingClassifier
-from sklearn.ensemble import VotingClassifier
+#from sklearn.ensemble import VotingClassifier
 #from sklearn.svm import SVC
+
+from sklearn.pipeline import Pipeline
+from PREPROCESSSSSSING import Preprocessor
 from sklearn.neural_network import MLPClassifier
 
 class model (BaseEstimator):
@@ -36,26 +38,25 @@ class model (BaseEstimator):
         self.num_feat=1
         self.num_labels=1
         self.is_trained=False
+        '''Ici quelques classifieurs téstés'''
         #self.model = clf = LogisticRegression(random_state=0, solver='lbfgs', multi_class='ovr')  
         #self.model = clf = GaussianNB()
         #self.model = clf = KNeighborsClassifier()
         #self.model = clf = QuadraticDiscriminantAnalysis()
         #self.model = clf = RandomForestClassifier(n_estimators= 80 , max_depth= 20, max_features= 'sqrt')
 
-       # self.model = clf = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(100, 50, 100, 50, 20),max_iter=1500,solver='adam', learning_rate='adaptive', activation='relu'))])
        
-              
-        fancy_classifier1 = Pipeline([('preprocessing', Preprocessor()),('classification', RandomForestClassifier(n_estimators= 80 , max_depth= 20, max_features= 'sqrt'))])
-        fancy_classifier2 = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])
-#       
-#					
-        self.model = clf = VotingClassifier(estimators=[
-					('Fancy Classifier1', fancy_classifier1),
-                    ('Fancy Classifier2', fancy_classifier2),
-                    
-                    
-                    ],
-					voting='soft')  
+        '''Ici, nous testons deux fancyclassifier avec preprocessing intégré, que nous mettons en competition.'''
+        #fancy_classifier1 = Pipeline([('preprocessing', Preprocessor()),('classification', RandomForestClassifier(n_estimators= 80 , max_depth= 20, max_features= 'sqrt'))])
+        #fancy_classifier2 = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])				
+        #self.model = clf = VotingClassifier(estimators=[('Fancy Classifier1', fancy_classifier1),('Fancy Classifier2', fancy_classifier2),],voting='soft')  
+    
+    
+        '''Voici le classifieur final choisi'''
+        self.model = clf = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])
+       
+        
+        
     def fit(self, X, y):
         '''
         This function should train the model parameters.
