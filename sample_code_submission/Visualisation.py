@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Feb 22 12:30:02 2019
-
 @author: isabe
 """
 
@@ -10,18 +9,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import f_regression
 import seaborn as sns
+from sys import path;path.append(problem_dir); 
 import data_io
+
 
 '''Il s'agit d'un fichier permettant la generation d'images'''
 
 
 def funcPCA (data) : 
 
-    print(np.cumsum(pca.explained_variance_ratio_))
-    plt.figure(figsize = (8,8))
+    #print(np.cumsum(pca.explained_variance_ratio_))
+    plt.figure(figsize = (16,16))
     plt.ylabel('% Variance Explained')
     plt.xlabel('# of Features')
     plt.title('PCA Analysis')
@@ -73,15 +72,69 @@ def funcDiagbaton (donnee) :
         plt.legend()
 
 
+    if(donnee==3):
+        plt.title('Score CV avec MLP et differents preprocessing')
+        plt.ylim(0,1.1)
+    
+        barWidth = 0.25
+        bars1 = [0.9,0.85,0.76,0.64]
+        bars2 = [0.9,0.85,0.78,0.64]
+        bars3 = [0.9]
 
+
+# Set position of bar on X axis
+        r1 = np.arange(len(bars1))
+        r2 = [x + barWidth for x in r1]
+        r3 = [x + barWidth for x in r2]
+ 
+# Make the plot
+        plt.bar(r1, bars1, color='#7f6d5f', width=barWidth, edgecolor='white', label='PCA')
+        plt.bar(r2, bars2, color='#557f2d', width=barWidth, edgecolor='white', label='SelectKBest')
+        plt.bar(r3, bars3, color='#2d7f5e', width=barWidth, edgecolor='white', label='PCA + SelectKBest')
+ 
+# Add xticks on the middle of the group bars
+        plt.xlabel('Méthode de classification', fontweight='bold')
+        plt.ylabel('Score', fontweight='bold')
+        plt.xticks([r + barWidth for r in range(len(bars1))], ['components = 140', 'components = 100', 'components = 60', 'components = 20', 'components = PCA = 170 & SelectKbest = 140'])
+ 
+# Create legend & Show graphic
+        plt.legend()
 
     plt.show()
     plt.close()
 
+
+def duTP (data, prepro):
+    plt.figure(figsize = (16,16))
+    data.boxplot()
+    plt.show()
+    plt.close()
+    
+    plt.figure(figsize = (16,16))
+    corr_mat = data.corr(method='pearson')
+    a = sns.heatmap(corr_mat, annot=True, center=0)
+    plt.show()
+    plt.close()
+    if prepro==False :  
+        plt.figure(figsize = (16,16))
+        data_num = data.copy()  # If you don't use "copy", any change in data_num will also result in a change in data
+        
+        data_num['target']= data_num['target'].astype('category')
+        data_num['target'] = data_num['target'].cat.codes
+        b = sns.heatmap(data_num)
+        plt.show()
+        plt.close()
+    
+    
+    
 if __name__=="__main__":
+    import matplotlib.pyplot as plt # pour que la soumission sur codalab passe.
+    
+    
     sns.set(font_scale=1.4,style="whitegrid") #set styling preferences
-    url = "c1_input_data/perso_train.data" 
-    data = data_io.read_as_df('c1_input_data/perso') #tout
+    
+   
+    data = data_io.read_as_df('C:\\Users\\isabe\\Downloads\\monet-master\\starting_kit\\c1_input_data\\perso') #tout
     df = pd.read_csv(url ,delimiter=' ') # toutes les données sans le head, ni les labels
     labels = data.iloc[1:,-1] # label : true ou false?
 
@@ -98,5 +151,6 @@ if __name__=="__main__":
     funcPCA (data)
     funcDiagbaton(1)
     funcDiagbaton(2)
-
+    funcDiagbaton(3)
+    duTP(data,False)
     

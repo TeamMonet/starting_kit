@@ -21,11 +21,10 @@ from sklearn.base import BaseEstimator
 
 #from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 #from sklearn.ensemble import BaggingClassifier
-#from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import VotingClassifier
 #from sklearn.svm import SVC
-
 from sklearn.pipeline import Pipeline
-from PREPROCESSSSSSING import Preprocessor
+from preprocessing import Preprocessor, Preprocessor2
 from sklearn.neural_network import MLPClassifier
 
 class model (BaseEstimator):
@@ -45,17 +44,18 @@ class model (BaseEstimator):
         #self.model = clf = QuadraticDiscriminantAnalysis()
         #self.model = clf = RandomForestClassifier(n_estimators= 80 , max_depth= 20, max_features= 'sqrt')
 
+ 
+        #self.model = clf = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])
+        #self.model = clf = Pipeline([('SelectKBest', Preprocessor2()),('PCA', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])
        
-        '''Ici, nous testons deux fancyclassifier avec preprocessing intégré, que nous mettons en competition.'''
-        #fancy_classifier1 = Pipeline([('preprocessing', Preprocessor()),('classification', RandomForestClassifier(n_estimators= 80 , max_depth= 20, max_features= 'sqrt'))])
-        #fancy_classifier2 = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])				
-        #self.model = clf = VotingClassifier(estimators=[('Fancy Classifier1', fancy_classifier1),('Fancy Classifier2', fancy_classifier2),],voting='soft')  
-    
-    
-        '''Voici le classifieur final choisi'''
-        self.model = clf = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])
-       
+          
+        '''Ici, nous testons trois classifier  que nous mettons en competition.'''
+        fancy_classifier1 = MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu')
+        fancy_classifier2 = Pipeline([('preprocessing', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])				
+        fancy_classifier3 = Pipeline([('SelectKBest', Preprocessor2()),('PCA', Preprocessor()),('classification', MLPClassifier(hidden_layer_sizes=(200,100,50,20),max_iter=1500,solver='adam', learning_rate='invscaling', activation='relu'))])
         
+        self.model = clf = VotingClassifier(estimators=[('Fancy Classifier1', fancy_classifier1),('Fancy Classifier2', fancy_classifier2),('Fancy Classifier3', fancy_classifier3)],voting='soft')  
+    
         
     def fit(self, X, y):
         '''
