@@ -11,6 +11,7 @@ Ainsi, bien que chacun des membres était assigné à une partie, nous nous somm
 - Nasrine & Laetitia ont bien cerné les concepts de machine learning, ce qui a fait qu’elles ont pu vulgariser et expliquer certains aspects qui semblaient parfois abstrait à certains membres du groupe. 
 - Isabelle aime débuguer. Du coup, elle a pu également participer à la partie Prédiction, comme la partie Visualisation. 
 - Amel, Shuyang et Patricia ont également apporté leur contribution à tout les stades du projet. 
-Nous remercions I. Guyon et Z. Liu pour leur aide tout au long de ce projet. 
+
+Enfin, nous remercions I. Guyon et Z. Liu pour leur aide tout au long de ce projet. 
 
 Pour plus d’information : http://saclay.chalearn.org/
