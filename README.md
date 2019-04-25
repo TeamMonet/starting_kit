@@ -12,6 +12,6 @@ Ainsi, bien que chacun des membres était assigné à une partie, nous nous somm
 - Isabelle aime débuguer. Du coup, elle a pu également participer à la partie Prédiction, comme la partie Visualisation. 
 - Amel, Shuyang et Patricia ont également apporté leur contribution à tout les stades du projet. 
 
-Enfin, nous remercions I. Guyon et Z. Liu pour leur aide tout au long de ce projet. 
+Enfin, nous remercions I. Guyon et Z. Liu pour leur disponibilité tout au long de ce projet. 
 
 Pour plus d’information : http://saclay.chalearn.org/
