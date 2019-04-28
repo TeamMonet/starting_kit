@@ -5,12 +5,10 @@ Created on Fri Feb 22 12:30:02 2019
 """
 
 #Imports
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
-import seaborn as sns
-from sys import path;path.append(problem_dir); 
+from sys import path;
 import data_io
 
 
@@ -129,12 +127,13 @@ def duTP (data, prepro):
     
 if __name__=="__main__":
     import matplotlib.pyplot as plt # pour que la soumission sur codalab passe.
-    
+    import seaborn as sns
     
     sns.set(font_scale=1.4,style="whitegrid") #set styling preferences
     
    
     data = data_io.read_as_df('C:\\Users\\isabe\\Downloads\\monet-master\\starting_kit\\c1_input_data\\perso') #tout
+    url = "C:\\Users\\isabe\\Downloads\\monet-master\\starting_kit\\c1_input_data\\perso_train.data" 
     df = pd.read_csv(url ,delimiter=' ') # toutes les données sans le head, ni les labels
     labels = data.iloc[1:,-1] # label : true ou false?
 
