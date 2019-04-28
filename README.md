@@ -18,13 +18,13 @@ L’équipe a travaillé ensemble, ce qui fait que les binômes pouvaient s'inve
 La pluralité des profils a fait que l’équipe à travaillé de manière collaborative et efficace. 
 Ainsi, bien que chacun des membres était assigné à une partie, nous nous sommes entraidés pour faire ce projet et toujours essayer de l'améliorer afin de remplir la majorité des critères attendus par nos enseignants .
 
-- Nasrine & Laetitia ont bien compris les concepts du machine learning, ce qui a fait qu’elles ont pu vulgariser et expliquer certains aspects qui semblaient parfois abstrait à certains membres du groupe. 
+- Nasrine & Laetitia ( model.py )ont bien compris les concepts du machine learning, ce qui a fait qu’elles ont pu vulgariser et expliquer certains aspects qui semblaient parfois abstrait à certains membres du groupe. 
 
-- Isabelle qui est une adèpte du debeuguage , un avantage précieux pour l'avancement et l'amélioration du score obtnu sur Codalab. Du coup, elle a pu participer à la partie Prédiction, comme la partie Visualisation. Patricia , de part ces nombreuses connaissances a réussi à écrire des morceaux de code , ce qu ia rendu le travail personnel et représentatif de la team Monet.
+- Isabelle ( preprocessing.py ) qui est une adèpte du debeuguage , un avantage précieux pour l'avancement et l'amélioration du score obtnu sur Codalab. Du coup, elle a pu participer à la partie Prédiction, comme la partie Visualisation. Patricia , de part ces nombreuses connaissances a réussi à écrire des morceaux de code , ce qu ia rendu le travail personnel et représentatif de la team Monet.
 
-- Amel, Shuyang avaient pour mission de mettre en image/graphe les différentes données et résultats du Challenge,elles ont essayé de varier les méthodes de viusalisation disponibles sur seakiLearn par exemple , elles ont également apporté leur contribution à tout les stades du projet. 
+- Amel, Shuyang ( Visualisation.py )avaient pour mission de mettre en image/graphe les différentes données et résultats du Challenge,elles ont essayé de varier les méthodes de visusalisation disponibles sur seakitLearn par exemple , elles ont également apporté leur contribution à tout les stades du projet. 
 
-
+  Il est incontestable que le challenge Persodata est l’un des meilleurs proposés cette année puisqu’il traite un thème d’actualités qui relie le développement technologique et surtout l’intelligence des machines, qui se rapprochent de plus en plus de l’humain,  de plus derrière son aspect abordable (consistant à utiliser des classifieurs), nous avons découvert quelques recoins plus techniques, demandant de la réflexion.
 
 Enfin, nous remercions I. Guyon et Z. Liu pour leur disponibilité tout au long de ce projet. 
 
